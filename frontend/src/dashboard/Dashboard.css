@@ -1,0 +1,304 @@
+/* Navbar */
+/* Grid container for small cards */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 10px;
+  justify-items: center;
+  align-items: start;
+  width: 100%;
+}
+
+/* Individual small card */
+.small-card {
+  width: 100px;
+  height: 100px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.small-card .select-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 10px;
+  padding: 0 2px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.admin-dashboard {
+  width: 80%;       /* poora dashboard 80% width */
+  margin: 0 auto;   /* left-right 10% automatically */
+  min-height: 100vh;
+  background: #f9fafb;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 10%;
+  background: #2563eb;
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.lms-logo {
+  background: #fff;
+  color: #2563eb;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.navbar-center {
+  font-size: 1.2rem;
+}
+
+.navbar-right {
+  font-weight: 500;
+}
+
+/* Dashboard main layout */
+.dashboard-main {
+ display: flex;
+  flex: 1;                 /* baki space fill kare */
+  gap: 1.5rem;
+  padding: 1rem 0;
+  background: #f3f4f6;
+}
+
+.dashboard-sidebar {
+  width: 200px;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.dashboard-sidebar button {
+  padding: 0.6rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  text-align: left;
+  background: #f3f4f6;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.dashboard-sidebar button.active {
+  background: #2563eb;
+  color: #fff;
+}
+
+.dashboard-sidebar button:hover {
+  background: #e0e7ff;
+}
+
+/* Content area */
+.dashboard-content {
+  flex: 1;
+  min-width: 0; /* for flexbox overflow fix */
+}
+
+
+/* Card style */
+.card1{
+    background: #fff;
+   padding: 0.8rem;        /* andar ka space */
+  margin-bottom: 1rem;    /* card ke niche gap */
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+   min-height: 10px;
+}
+.card h2, .card h3 {
+  margin: 0.2rem 0;
+}
+
+/* All Courses aur My Courses ke div ke liye extra gap */
+.dashboard-content > .card + .card {
+  margin-top: 1.5rem; /* har card ke upar thoda gap */
+}
+.card {
+  background: #fff;
+    padding: 0.8rem;        /* andar ka space */
+  margin-bottom: 1rem;    /* card ke niche gap */
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  min-height: 200px;
+
+}
+
+/* Form inputs */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.form input,
+.form select,
+.form textarea {
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  outline: none;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+.form input:focus,
+.form select:focus,
+.form textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+.form button {
+  padding: 0.7rem;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.form button:hover {
+  background: #1d4ed8;
+}
+
+/* Course list */
+.card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+}
+
+.card li {
+  padding: 0.3rem 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+.course-card {
+  width: 160px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+  margin-top: 10px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.course-card:hover {
+  transform: scale(1.03);
+}
+
+.course-thumbnail {
+  width: 100%;
+  height: 80px;
+  border-radius: 6px;
+  object-fit: cover;
+  margin-bottom: 6px;
+}
+
+.course-title {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 2px 0;
+  text-align: center;
+}
+
+.course-desc {
+  font-size: 11px;
+  color: #555;
+  margin: 2px 0;
+  text-align: center;
+}
+
+.course-cat {
+  font-size: 11px;
+  color: #777;
+  margin: 2px 0 6px 0;
+  text-align: center;
+}
+
+.enroll-btn {
+  font-size: 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #007bff;
+  color: #fff;
+  padding: 4px 6px;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+.enroll-btn:hover {
+  background-color: #0056b3;
+}
+
+.enrolled-text {
+  color: green;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 6px;
+}
+.card-buttons {
+  display: flex;
+  justify-content: space-between; /* buttons side by side, space in between */
+  margin-top: 8px;
+}
+
+.update-btn,
+.delete-btn {
+  flex: 1; /* equal width */
+  margin: 0 4px; /* thoda gap */
+  padding: 4px 6px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.update-btn {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.update-btn:hover {
+  background-color: #218838;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
