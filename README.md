@@ -2,11 +2,6 @@
 
 This is a Learning Management System (LMS) project with React frontend and FastAPI backend.
 
-## Project Structure
-
-# LMS Project
-
-This is a Learning Management System (LMS) project with React frontend and FastAPI backend.
 
 ## Project Structure
 
@@ -40,7 +35,7 @@ DATABASE_URL=postgresql://username:password@localhost:5432/db_name
 uvicorn main:app --reload
 
 
-# Frontend
+### 1. frontend
 cd frontend
 npm install
 npm start
