@@ -31,7 +31,6 @@ RAZORPAY_KEY_SECRET=your_razorpay_key_secret
 DATABASE_URL=postgresql://username:password@localhost:5432/db_name
 
 # Run backend:
-
 uvicorn main:app --reload
 
 
