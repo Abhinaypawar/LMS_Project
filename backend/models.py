@@ -17,7 +17,7 @@ class Course(Base):
     category = Column(String)
     instructor_id = Column(Integer, ForeignKey("users.id"))
     image_url = Column(String, nullable=True)
-    price = Column(Integer, nullable=False, default=0)
+    price = Column(Integer, nullable=True, default=0)
 
 class Lesson(Base):
     __tablename__ = "lessons"

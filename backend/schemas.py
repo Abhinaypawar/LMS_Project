@@ -28,7 +28,7 @@ class CourseCreate(BaseModel):
     category: Optional[str] = None
     instructor_id: int
     image_url: Optional[str] = None   
-    price: int
+    price: Optional[int] = None
 
     class Config:
         # UPDATED: Use the Pydantic V2 setting
@@ -41,7 +41,8 @@ class CourseResponse(BaseModel):
     category: Optional[str] = None
     instructor_id: int
     image_url: Optional[str] = None
-    price: int 
+    # price: int 
+    price: Optional[int] = None
 
     class Config:
         from_attributes = True

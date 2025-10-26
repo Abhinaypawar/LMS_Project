@@ -16,6 +16,7 @@ const MyCourses = () => {
     description: "",
     category: "",
     image_url: "",
+    price: "",
   });
 
   const fetchCourses = async () => {
@@ -62,6 +63,7 @@ const MyCourses = () => {
       description: course.description,
       category: course.category,
       image_url: course.image_url,
+      price: course.price,
     });
     setIsModalOpen(true);
   };
@@ -108,6 +110,10 @@ const MyCourses = () => {
             <span className="course-cat">
               Category: {course.category || "N/A"}
             </span>
+            <span className="course-price">
+              Price: ₹{course.price != null ? course.price : "Free"}
+            </span>
+
             <div className="card-buttons">
               <button 
               className="update-btn"
@@ -153,6 +159,13 @@ const MyCourses = () => {
               value={formData.image_url}
               onChange={handleChange}
               placeholder="Image URL"
+            />
+            <input
+              type="number"
+              name="price"  
+              value={formData.price}
+              onChange={handleChange}
+              placeholder="Price (in INR)"
             />
             <div className="modal-buttons">
               <button onClick={handleUpdate}>Save Changes</button>

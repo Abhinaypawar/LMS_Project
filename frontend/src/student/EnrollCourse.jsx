@@ -4,6 +4,7 @@ import API from "../api/api";
 import { UserContext } from "../context/UserContext";
 import "../dashboard/Dashboard.css"; // Reuse existing CSS
 
+
 const CourseCard = ({
   course,
   onEnroll,
@@ -48,10 +49,11 @@ const CourseCard = ({
 );
 
 const EnrollCourse = () => {
-  const { user } = useContext(UserContext);
+  const { user, setRefreshMyCourses } = useContext(UserContext);
   const [courses, setCourses] = useState([]);
   const [enrolledCourses, setEnrolledCourses] = useState([]);
   const [loadingUnenrollFor, setLoadingUnenrollFor] = useState(null);
+  // const {  } = useContext(UserContext);
 
   // fetch all courses
   const fetchCourses = async () => {
@@ -128,11 +130,12 @@ const EnrollCourse = () => {
               await API.post(
                 `/enrollments/?student_id=${user.id}&course_id=${course.id}`
               );
-              alert("Payment successful! You are enrolled in this course.");
+              // alert("Payment successful! You are enrolled in this course.");
+              setRefreshMyCourses((prev) => !prev);
               fetchEnrolled();
             } catch (err) {
               console.error("Enroll after payment failed:", err);
-              alert("Enrollment failed after payment");
+              // alert("Enrollment failed after payment");
             }
           },
           modal: {
@@ -150,7 +153,8 @@ const EnrollCourse = () => {
         await API.post(
           `/enrollments/?student_id=${user.id}&course_id=${course.id}`
         );
-        alert("Enrolled successfully!");
+        // alert("Enrolled successfully!");
+        setRefreshMyCourses((prev) => !prev);
         fetchEnrolled();
       }
     } catch (err) {
@@ -160,10 +164,10 @@ const EnrollCourse = () => {
   };
 
   const handleUnenroll = async (courseId) => {
-    const ok = window.confirm(
-      "Are you sure you want to unenroll from this course?"
-    );
-    if (!ok) return;
+    // const ok = window.confirm(
+    //   "Are you sure you want to unenroll from this course?"
+    // );
+    // if (!ok) return;
 
     try {
       setLoadingUnenrollFor(courseId);
@@ -171,7 +175,8 @@ const EnrollCourse = () => {
         `/enrollments?student_id=${user.id}&course_id=${courseId}`
       );
 
-      alert("You have been unenrolled.");
+      // alert("You have been unenrolled.");
+      setRefreshMyCourses((prev) => !prev);
       await fetchEnrolled();
     } catch (err) {
       console.error("Unenroll error:", err);

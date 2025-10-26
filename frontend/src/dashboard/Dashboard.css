@@ -39,8 +39,8 @@
 }
 
 .admin-dashboard {
-  width: 80%;       /* poora dashboard 80% width */
-  margin: 0 auto;   /* left-right 10% automatically */
+  width: 80%; /* poora dashboard 80% width */
+  margin: 0 auto; /* left-right 10% automatically */
   min-height: 100vh;
   background: #f9fafb;
   display: flex;
@@ -76,8 +76,8 @@
 
 /* Dashboard main layout */
 .dashboard-main {
- display: flex;
-  flex: 1;                 /* baki space fill kare */
+  display: flex;
+  flex: 1; /* baki space fill kare */
   gap: 1.5rem;
   padding: 1rem 0;
   background: #f3f4f6;
@@ -120,17 +120,17 @@
   min-width: 0; /* for flexbox overflow fix */
 }
 
-
 /* Card style */
-.card1{
-    background: #fff;
-   padding: 0.8rem;        /* andar ka space */
-  margin-bottom: 1rem;    /* card ke niche gap */
+.card1 {
+  background: #fff;
+  padding: 0.8rem; /* andar ka space */
+  margin-bottom: 1rem; /* card ke niche gap */
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-   min-height: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  min-height: 10px;
 }
-.card h2, .card h3 {
+.card h2,
+.card h3 {
   margin: 0.2rem 0;
 }
 
@@ -140,12 +140,11 @@
 }
 .card {
   background: #fff;
-    padding: 0.8rem;        /* andar ka space */
-  margin-bottom: 1rem;    /* card ke niche gap */
+  padding: 0.8rem; /* andar ka space */
+  margin-bottom: 1rem; /* card ke niche gap */
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   min-height: 200px;
-
 }
 
 /* Form inputs */
@@ -302,6 +301,6 @@
 .delete-btn:hover {
   background-color: #c82333;
 }
- .courses-row::-webkit-scrollbar {
+.courses-row::-webkit-scrollbar {
   height: 5px;
 }

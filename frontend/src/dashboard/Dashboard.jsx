@@ -1,4 +1,3 @@
-
 import { useState, useContext, useEffect } from "react";
 import { UserContext } from "../context/UserContext";
 import { useNavigate } from "react-router-dom";
@@ -17,7 +16,7 @@ import QuizzesLessons from "../student/QuizzesLessons";
 // import MyCourses from "../student/MyCourses";
 
 const Dashboard = () => {
-  const { user } = useContext(UserContext);
+  const { user, refreshMyCourses } = useContext(UserContext);
   const [activeTab, setActiveTab] = useState("dashboard");
   const [courses, setCourses] = useState([]);
   const [myCourses, setMyCourses] = useState([]);
@@ -64,7 +63,7 @@ const Dashboard = () => {
     };
 
     fetchMyCourses();
-  }, [user]);
+  }, [user, refreshMyCourses]);
 
   if (!user) return <div>Loading user...</div>;
 
@@ -88,7 +87,90 @@ const Dashboard = () => {
     if (user.role === "Admin") {
       switch (activeTab) {
         case "dashboard":
-          return <div className="card1">Welcome Admin {user.name}</div>;
+          return (
+            <div className="card1">
+              <h2>Welcome to LMS admin page {user.name}!</h2>
+              <h3 style={{ marginTop: "20px" }}>Courses</h3>
+              <div
+                className="courses-row"
+                style={{
+                  display: "flex",
+                  gap: "16px",
+                  overflowX: "auto",
+                  paddingBottom: "10px",
+                }}
+              >
+                {courses.length === 0 ? (
+                  <p>No courses available</p>
+                ) : (
+                  courses.map((course) => (
+                    <div
+                      key={course.id}
+                      className="course-card"
+                      style={{
+                        minWidth: "180px",
+                        border: "1px solid #ddd",
+                        borderRadius: "10px",
+                        padding: "8px",
+                        background: "#fff",
+                        boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        height: "180px", // reduced height
+                        cursor: "pointer",
+                        transition: "transform 0.2s ease-in-out",
+                      }}
+                    >
+                      <img
+                        src={
+                          course.image_url?.includes("youtube.com")
+                            ? `https://img.youtube.com/vi/${
+                                course.image_url.split("v=")[1]
+                              }/0.jpg`
+                            : course.image_url ||
+                              "https://via.placeholder.com/200x120?text=No+Image"
+                        }
+                        alt={course.title}
+                        style={{
+                          width: "100%",
+                          height: "120px",
+                          borderRadius: "6px",
+                          objectFit: "cover",
+                          marginBottom: "6px", // smaller gap
+                        }}
+                      />
+                      <h4
+                        style={{
+                          fontSize: "15px",
+                          fontWeight: "600",
+                          color: "#333",
+                          margin: "4px 0",
+                          textAlign: "center",
+                        }}
+                      >
+                        title: {course.title}
+                      </h4>
+                      <p
+                        style={{
+                          fontSize: "13px",
+                          color: "#555",
+                          margin: "2px 0",
+                          textAlign: "center",
+                        }}
+                      >
+                        discription:{" "}
+                        {course.description.length > 50
+                          ? course.description.slice(0, 50) + "..."
+                          : course.description}
+                      </p>
+                    </div>
+                  ))
+                )}
+              </div>
+            </div>
+          );
         case "createCourse":
           return <CreateCourse />;
         case "myCourses":
@@ -165,7 +247,7 @@ const Dashboard = () => {
                           textAlign: "center",
                         }}
                       >
-                          title: {course.title}
+                        title: {course.title}
                       </h4>
                       <p
                         style={{
@@ -175,7 +257,8 @@ const Dashboard = () => {
                           textAlign: "center",
                         }}
                       >
-                        discription: {course.description.length > 50
+                        discription:{" "}
+                        {course.description.length > 50
                           ? course.description.slice(0, 50) + "..."
                           : course.description}
                       </p>
